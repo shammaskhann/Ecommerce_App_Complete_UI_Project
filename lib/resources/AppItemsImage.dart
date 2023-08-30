@@ -1,0 +1,33 @@
+class AppItemImage {
+  static var fruitLemon = 'assets/fruit/lemon.png';
+  static var fruitLemon1 = 'assets/fruit/lemon1.png';
+  static var fruitLemon2 = 'assets/fruit/lemon2.png';
+  static var fruitApple = 'assets/fruit/apple.png';
+  static var fruitApple2 = 'assets/fruit/apple2.png';
+  static var fruitStrawberry = 'assets/fruit/strawberry.png';
+  static var fruitStrawberry2 = 'assets/fruit/strawberry2.png';
+  static var fishCrab = 'assets/fish/crab.png';
+  static var fishCrab2 = 'assets/fish/crab2.png';
+  static var fishSlicedFish = 'assets/fish/slicedFish.png';
+  static var fishSlicedFish2 = 'assets/fish/slicedFish2.png';
+  static var fishStack = 'assets/fish/stackFish.png';
+  static var fishStack2 = 'assets/fish/stackFish2.png';
+  static var fishqueueFish = 'assets/fish/queueFish.png';
+  static var fishqueueFish2 = 'assets/fish/queueFish2.png';
+  static var beefMeatChopped = 'assets/meat/meatChopped.png';
+  static var beefMeatChopped2 = 'assets/meat/meatChopped2.png';
+  static var beefMeatSteak = 'assets/meat/meatSteak.png';
+  static var beefMeatSteak2 = 'assets/meat/meatSteak2.png';
+  static var beefMeatSteak3 = 'assets/meat/meatSteak3.png';
+  static var chickenGroundedMeat = 'assets/meat/groundedmeat.png';
+  static var chickenGroundedMeat2 = 'assets/meat/groundedmeat2.png';
+  static var chickenLolipop = 'assets/meat/chickenLolipop.png';
+  static var chickenLolipop2 = 'assets/meat/chickenLolipop2.png';
+  static var vegGarlic = 'assets/vegetable/garlic.png';
+  static var vegGarlic2 = 'assets/vegetable/garlic2.png';
+  static var vegOnion = 'assets/vegetable/onion.png';
+  static var vegOnion2 = 'assets/vegetable/onion2.png';
+  static var vegOnion3 = 'assets/vegetable/onion3.png';
+  static var vegTomato = 'assets/vegetable/tomatoes.png';
+  static var vegTomato2 = 'assets/vegetable/tomatoes2.png';
+}
