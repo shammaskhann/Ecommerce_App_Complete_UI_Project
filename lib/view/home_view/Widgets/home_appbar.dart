@@ -63,12 +63,9 @@ class HomeAppBar extends StatelessWidget {
             ),
             const Spacer(),
             const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                LocationSelectionWidget(),
-                Spacer(),
-                DeliveryTimeSelection()
-              ],
+              children: [LocationSelectionWidget(), DeliveryTimeSelection()],
             ),
           ],
         ),

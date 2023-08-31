@@ -37,14 +37,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ),
       extendBody: true,
       bottomNavigationBar: AnimatedNotchBottomBar(
-        showShadow: true,
+        showShadow: false,
         removeMargins: true,
         notchBottomBarController: _controller,
         durationInMilliSeconds: 300,
         showLabel: true,
         itemLabelStyle: const TextStyle(
             color: Colors.black,
-            fontSize: 16.0,
+            fontSize: 12.0,
             fontFamily: 'Manrope',
             fontWeight: FontWeight.w500),
         notchColor: AppColor.black100,

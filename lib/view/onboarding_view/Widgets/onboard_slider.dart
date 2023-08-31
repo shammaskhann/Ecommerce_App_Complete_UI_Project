@@ -16,15 +16,12 @@ class _OnboardSliderState extends State<OnboardSlider> {
   Widget build(BuildContext context) {
     int currentValue = 0;
     return Container(
-      height: MediaQuery.of(context).size.height * 0.35,
-      width: MediaQuery.of(context).size.width * 1,
-      margin: const EdgeInsets.symmetric(horizontal: 30.0),
+      // height: MediaQuery.of(context).size.height * 0.4,
+      // width: MediaQuery.of(context).size.width * 1,
+      margin: const EdgeInsets.symmetric(horizontal: 10.0),
       child: Swiper(
         onIndexChanged: (value) {
-          setState(() {
-            currentValue = value;
-          });
-          print(currentValue);
+          setState(() {});
         },
         itemCount: OnBoardBanner.onboardBanner.length,
         itemBuilder: (BuildContext context, int index) {

@@ -46,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const HomeAppBar(),
             Expanded(
+              flex: 2,
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,6 +97,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                       .recomendedItems.RecomenededItem[index]);
                             }),
                       ),
+                    ),
+                    const SizedBox(
+                      height: 20,
                     ),
                     //replica for checking purpose :)
                     Padding(

@@ -33,6 +33,7 @@ class CategoryAppBar extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.156,
               child: const Column(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -40,7 +41,7 @@ class CategoryAppBar extends StatelessWidget {
                     style: TextStyle(
                         color: Colors.white,
                         fontFamily: 'Manrope',
-                        fontSize: 50,
+                        fontSize: 37, //was 50
                         fontWeight: FontWeight.w300),
                     textAlign: TextAlign.start,
                   ),
@@ -48,7 +49,7 @@ class CategoryAppBar extends StatelessWidget {
                       style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'Manrope',
-                          fontSize: 50,
+                          fontSize: 37, //was 50
                           fontWeight: FontWeight.w800))
                 ],
               ),

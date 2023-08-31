@@ -19,9 +19,10 @@ class Items {
         'Very Good',
         'Very Very Good',
       ],
-      'price': 70,
+      'price': 90,
       'tagline': 'From Sea',
       'category': 'Fishes',
+      'tags': ['Fresh', 'Low Delivery', 'Free Delivery']
     },
     {
       'name': "Salmon",
@@ -39,9 +40,10 @@ class Items {
         'Good',
         'Very Good',
       ],
-      'price': 100,
+      'price': 150,
       'tagline': 'From Sea',
       'category': 'Fishes',
+      'tags': ['Fresh', 'Halal']
     },
     {
       'name': 'Tilapia',
@@ -59,9 +61,10 @@ class Items {
         'Very Good',
         'Very Very Good',
       ],
-      'price': 50,
+      'price': 100,
       'tagline': 'From Sea',
       'category': 'Fishes',
+      'tags': ['Fresh', 'Halal', 'Low Price']
     },
     {
       'name': 'Crab',
@@ -79,9 +82,10 @@ class Items {
         'Very Good',
         'Very Very Good',
       ],
-      'price': 80,
+      'price': 180,
       'tagline': 'From Sea',
       'category': 'Fishes',
+      'tags': ['Fresh', 'Halal']
     },
     {
       'name': 'Fresh Beef',
@@ -103,6 +107,7 @@ class Items {
         {'reviewername': 'Catherine', 'review': 'Very Very Good'},
       ],
       'price': 100,
+      'tags': ['Fresh', 'Halal', 'Free Delivery']
     },
     {
       'name': 'Chopped Beef',
@@ -122,7 +127,8 @@ class Items {
         {'reviewername': 'Eva', 'review': 'Very Good'},
         {'reviewername': 'Frank', 'review': 'Very Very Good'},
       ],
-      'price': 50,
+      'price': 90,
+      'tags': ['Fresh', 'Halal', 'Low Price']
     },
     {
       'name': 'Chicken DrumStick',
@@ -143,6 +149,7 @@ class Items {
         {'reviewername': 'Charlie', 'review': 'Very Very Good'},
       ],
       'price': 100,
+      'tags': ['Halal', 'Free Delivery']
     },
     {
       'name': 'Grounded Chicken',
@@ -162,7 +169,8 @@ class Items {
         {'reviewername': 'Emily', 'review': 'Very Good'},
         {'reviewername': 'Frank', 'review': 'Good'},
       ],
-      'price': 50,
+      'price': 70,
+      'tags': ['Fresh', 'Halal', 'Low Price']
     },
     {
       'name': 'Fresh Apple',
@@ -183,6 +191,7 @@ class Items {
         {'reviewername': 'Charlie', 'review': 'Very Very Good'},
       ],
       'price': 100,
+      'tags': ['Fresh', 'Halal', 'Free Delivery']
     },
     {
       'name': 'Juicy Lemon',
@@ -203,6 +212,7 @@ class Items {
         {'reviewername': 'Frank', 'review': 'Good'},
       ],
       'price': 50,
+      'tags': ['Fresh', 'Low Price']
     },
     {
       'name': 'Fresh Strawberry',
@@ -223,6 +233,7 @@ class Items {
         {'reviewername': 'Isabella', 'review': 'Very Good'},
       ],
       'price': 80,
+      'tags': ['Fresh', 'Low Price']
     },
     {
       'name': 'Fresh Tomato',
@@ -243,6 +254,7 @@ class Items {
         'Very Very Good',
       ],
       'price': 100,
+      'tags': ['Fresh', 'Free Delivery']
     },
     {
       'name': 'Garlic',
@@ -263,6 +275,7 @@ class Items {
         'Very Very Good',
       ],
       'price': 50,
+      'tags': ['Low Price']
     },
     {
       'name': 'Fresh Onion',
@@ -284,6 +297,7 @@ class Items {
         'Very Very Good',
       ],
       'price': 80,
+      'tags': ['Fresh', 'Free Delivery'],
     }
   ];
 }

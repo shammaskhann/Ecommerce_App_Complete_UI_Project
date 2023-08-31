@@ -14,6 +14,7 @@ class _DeliveryTimeSelectionState extends State<DeliveryTimeSelection> {
   @override
   Widget build(BuildContext context) {
     return DropdownMenu(
+      width: 95,
       label: Text('WITHIN',
           style: TextStyle(
               color: AppColor.black60,

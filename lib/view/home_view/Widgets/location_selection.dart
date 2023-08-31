@@ -16,6 +16,7 @@ class _LocationSelectionWidgetState extends State<LocationSelectionWidget> {
   @override
   Widget build(BuildContext context) {
     return DropdownMenu(
+      width: 170,
       label: Text(
         'DELIVER TO',
         style: TextStyle(

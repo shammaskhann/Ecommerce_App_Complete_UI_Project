@@ -1,5 +1,6 @@
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:ecommerce_app_ui_project/view/category_view/catergoryScreen/Widget/itemCard_view.dart';
+import 'package:ecommerce_app_ui_project/view/productPage_view/product_view.dart';
 import 'package:flutter/material.dart';
 
 class ChickenShop extends StatelessWidget {
@@ -14,7 +15,20 @@ class ChickenShop extends StatelessWidget {
         'img': 'assets/images/Halal.png',
         'imgBack': Colors.green.shade400,
         'price': 90.99,
-        'onTap': () {},
+        'onTap': () {
+          Navigator.push(
+              context,
+              PageRouteBuilder(
+                  transitionDuration: const Duration(milliseconds: 500),
+                  reverseTransitionDuration: const Duration(milliseconds: 500),
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return FadeTransition(
+                        opacity: animation,
+                        child: ProductScreen(
+                          title: 'Halal Meat',
+                        ));
+                  }));
+        },
       },
       {
         'title': "100% Fresh Meat",
