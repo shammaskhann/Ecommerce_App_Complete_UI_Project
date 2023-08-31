@@ -24,4 +24,16 @@ class AppText {
     color: AppColor.black60,
     fontSize: 16,
   );
+  static TextStyle appBarTitle = const TextStyle(
+      fontFamily: 'Manrope', fontSize: 18, fontWeight: FontWeight.w600);
+  static TextStyle productDescription = TextStyle(
+      fontSize: 18,
+      fontFamily: 'Manrope',
+      fontWeight: FontWeight.w300,
+      color: AppColor.black60.withOpacity(0.8));
+  static TextStyle productHeading = const TextStyle(
+      fontSize: 20,
+      fontFamily: 'Manrope',
+      fontWeight: FontWeight.w500,
+      color: Colors.black);
 }

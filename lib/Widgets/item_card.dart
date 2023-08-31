@@ -1,14 +1,45 @@
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
-// ignore: must_be_immutable
-class ItemCard extends StatelessWidget {
-  late Map itemMap = {};
-  ItemCard({required this.itemMap, super.key});
+import '../resources/AppAnimation.dart';
+import '../resources/AppInit.dart';
+import '../view/product_detail_view/productdetail_view.dart';
+
+class ItemCard extends StatefulWidget {
+  final Map itemMap;
+  const ItemCard({required this.itemMap});
+
+  @override
+  State<ItemCard> createState() => _ItemCardState();
+}
+
+class _ItemCardState extends State<ItemCard> {
+  bool isAdded = false;
+  @override
+  void initState() {
+    super.initState();
+    isAdded = AppInit.cartController.isAdded(widget.itemMap['name']);
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            PageRouteBuilder(
+                transitionDuration: const Duration(milliseconds: 500),
+                reverseTransitionDuration: const Duration(milliseconds: 500),
+                pageBuilder: (context, animation, secondaryAnimation) {
+                  return FadeTransition(
+                    opacity: animation,
+                    child: ProductDetailScreen(
+                      itemMap: widget.itemMap,
+                    ),
+                  );
+                }));
+      },
       child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
@@ -25,7 +56,7 @@ class ItemCard extends StatelessWidget {
                   flex: 2,
                   child: Center(
                     child: Image.asset(
-                      itemMap['img'][0],
+                      widget.itemMap['img'][0],
                       height: 100,
                       width: 100,
                     ),
@@ -39,14 +70,14 @@ class ItemCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      itemMap['name'],
+                      widget.itemMap['name'],
                       style: TextStyle(
                           color: AppColor.black100,
                           fontSize: 16,
                           fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      itemMap['tagline'],
+                      widget.itemMap['tagline'],
                       style: TextStyle(
                           color: AppColor.black60,
                           fontSize: 14,
@@ -78,7 +109,7 @@ class ItemCard extends StatelessWidget {
                                     width: 5,
                                   ),
                                   Text(
-                                    '\$ ${itemMap['price']}',
+                                    '\$ ${widget.itemMap['price']}',
                                     style: TextStyle(
                                         color: AppColor.black100,
                                         fontSize: 16,
@@ -88,16 +119,33 @@ class ItemCard extends StatelessWidget {
                               ),
                             ),
                             InkWell(
-                              onTap: () {},
-                              child: CircleAvatar(
-                                  backgroundColor: AppColor.secondaryColor,
-                                  radius: 16,
-                                  child: Icon(
-                                    Icons.add,
-                                    color: Colors.white,
-                                    size: 18,
-                                  )),
-                            )
+                                onTap: () {
+                                  setState(() {
+                                    isAdded = !isAdded;
+                                    if (isAdded) {
+                                      AppInit.cartController
+                                          .addToCart(widget.itemMap);
+                                    } else {
+                                      AppInit.cartController.removeFromCart(
+                                          widget.itemMap['name']);
+                                    }
+                                  });
+                                },
+                                child: (!isAdded)
+                                    ? CircleAvatar(
+                                        backgroundColor:
+                                            AppColor.secondaryColor,
+                                        radius: 16,
+                                        child: const Icon(
+                                          Icons.add,
+                                          color: Colors.white,
+                                          size: 18,
+                                        ))
+                                    : Lottie.asset(
+                                        AppAnimation.addtoCartAnimation,
+                                        height: 25,
+                                        width: 25,
+                                        repeat: false))
                           ],
                         ),
                       ),

@@ -24,8 +24,9 @@ class ChickenShop extends StatelessWidget {
                   pageBuilder: (context, animation, secondaryAnimation) {
                     return FadeTransition(
                         opacity: animation,
-                        child: ProductScreen(
-                          title: 'Halal Meat',
+                        child: const ProductScreen(
+                          title: "Halal Meat",
+                          Itemtag: 'Halal',
                         ));
                   }));
         },

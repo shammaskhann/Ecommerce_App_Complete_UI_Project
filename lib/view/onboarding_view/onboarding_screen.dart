@@ -1,17 +1,22 @@
-import 'package:card_swiper/card_swiper.dart';
-import 'package:carousel_indicator/carousel_indicator.dart';
+import 'dart:async';
+
 import 'package:ecommerce_app_ui_project/Widgets/WideRoundButton.dart';
 import 'package:ecommerce_app_ui_project/resources/AppAnimation.dart';
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:ecommerce_app_ui_project/view/dashboard_view/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
-import 'Widgets/onBoardingBanner.dart';
 import 'Widgets/onboard_slider.dart';
 
-class OnboardingScreen extends StatelessWidget {
-  const OnboardingScreen({super.key});
+class OnBoardingScreen extends StatefulWidget {
+  const OnBoardingScreen({super.key});
+
+  @override
+  State<OnBoardingScreen> createState() => _OnBoardingScreenState();
+}
+
+class _OnBoardingScreenState extends State<OnBoardingScreen> {
+  bool loading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,11 +41,17 @@ class OnboardingScreen extends StatelessWidget {
                 color: AppColor.black60,
                 size: 15,
               ),
+              loading: loading,
               onTap: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const DashboardScreen()));
+                setState(() {
+                  loading = true;
+                });
+                Timer(const Duration(seconds: 2), () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const DashboardScreen()));
+                });
               },
             )
           ],

@@ -1,6 +1,4 @@
-import 'package:ecommerce_app_ui_project/resources/AppItemsImage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../resources/AppColor.dart';
 
@@ -12,7 +10,7 @@ class ExtendItemCardView extends StatelessWidget {
   final Color imgBack;
   final VoidCallback onTap;
   const ExtendItemCardView(
-      {required this.title,
+      {super.key, required this.title,
       required this.tagline,
       required this.img,
       required this.imgBack,
@@ -25,7 +23,7 @@ class ExtendItemCardView extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 30.0, left: 30),
       child: InkWell(
         onTap: onTap,
-        child: Container(
+        child: SizedBox(
           height: MediaQuery.of(context).size.height * 0.25,
           width: MediaQuery.of(context).size.width * 0.9,
           child: Row(

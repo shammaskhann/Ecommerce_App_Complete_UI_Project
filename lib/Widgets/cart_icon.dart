@@ -7,7 +7,8 @@ import '../resources/AppInit.dart';
 import '../view/cart_view/cart_screen.dart';
 
 class CartIcon extends StatefulWidget {
-  const CartIcon({super.key});
+  final Color? iconColor;
+  const CartIcon({this.iconColor, super.key});
 
   @override
   State<CartIcon> createState() => _CartIconState();
@@ -28,23 +29,36 @@ class _CartIconState extends State<CartIcon> {
                   },
                   icon: SvgPicture.asset(
                     AppIcon.cartIcon,
+                    color: widget.iconColor ?? Colors.white,
                   )),
               Positioned(
-                top: 5,
+                top: 8,
                 right: 5,
                 child: Container(
-                  height: 15,
-                  width: 15,
                   decoration: BoxDecoration(
-                    color: AppColor.amber,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "1",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 10,
+                      color: (widget.iconColor == null)
+                          ? AppColor.secondaryColor
+                          : Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                          color: (widget.iconColor == null)
+                              ? AppColor.secondaryColor
+                              : Colors.white.withOpacity(0.5),
+                          width: 2)),
+                  child: Container(
+                    height: 17,
+                    width: 17,
+                    decoration: BoxDecoration(
+                      color: AppColor.amber,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(
+                        AppInit.cartController.cartItems.length.toString(),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                        ),
                       ),
                     ),
                   ),
@@ -59,6 +73,7 @@ class _CartIconState extends State<CartIcon> {
             },
             icon: SvgPicture.asset(
               AppIcon.cartIcon,
+              color: widget.iconColor ?? Colors.white,
             ));
   }
 }

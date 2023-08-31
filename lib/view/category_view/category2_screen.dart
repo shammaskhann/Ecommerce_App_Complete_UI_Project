@@ -9,7 +9,7 @@ import 'catergoryScreen/veg_shop_view.dart';
 
 class ExtendCategoryScreen extends StatefulWidget {
   final int index;
-  ExtendCategoryScreen({required this.index, super.key});
+  const ExtendCategoryScreen({required this.index, super.key});
 
   @override
   State<ExtendCategoryScreen> createState() => _ExtendCategoryScreenState();
@@ -59,7 +59,7 @@ class _ExtendCategoryScreenState extends State<ExtendCategoryScreen> {
                             ? AppColor.amber
                             : AppColor.black45,
                         width: 1)),
-                label: Container(
+                label: SizedBox(
                   width: 80,
                   height: 30,
                   child: Center(
@@ -95,7 +95,7 @@ class _ExtendCategoryScreenState extends State<ExtendCategoryScreen> {
                             ? AppColor.amber
                             : AppColor.black45,
                         width: 1)),
-                label: Container(
+                label: SizedBox(
                   width: 80,
                   height: 30,
                   child: Center(
@@ -130,7 +130,7 @@ class _ExtendCategoryScreenState extends State<ExtendCategoryScreen> {
                             ? AppColor.amber
                             : AppColor.black45,
                         width: 1)),
-                label: Container(
+                label: SizedBox(
                   width: 80,
                   height: 30,
                   child: Center(
@@ -166,7 +166,7 @@ class _ExtendCategoryScreenState extends State<ExtendCategoryScreen> {
                             : AppColor.black45,
                         width: 1)),
                 backgroundColor: Colors.transparent,
-                label: Container(
+                label: SizedBox(
                   width: 80,
                   height: 30,
                   child: Center(

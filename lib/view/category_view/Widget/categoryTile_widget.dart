@@ -7,7 +7,7 @@ import '../category2_screen.dart';
 
 class CategoryTileView extends StatelessWidget {
   final int index;
-  const CategoryTileView({required this.index});
+  const CategoryTileView({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {

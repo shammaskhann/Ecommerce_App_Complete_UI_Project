@@ -1,31 +1,33 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:carousel_indicator/carousel_indicator.dart';
-import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
-import 'package:ecommerce_app_ui_project/view/onboarding_view/Widgets/onBoardingBanner.dart';
 import 'package:flutter/material.dart';
 
-class OnboardSlider extends StatefulWidget {
-  const OnboardSlider({super.key});
+import '../../../resources/AppColor.dart';
+
+class ImageSlider extends StatefulWidget {
+  final Map itemMap;
+  const ImageSlider({required this.itemMap, super.key});
 
   @override
-  State<OnboardSlider> createState() => _OnboardSliderState();
+  State<ImageSlider> createState() => _ImageSliderState();
 }
 
-class _OnboardSliderState extends State<OnboardSlider> {
+class _ImageSliderState extends State<ImageSlider> {
   @override
   Widget build(BuildContext context) {
-    // int currentValue = 0;
-    return Container(
-      // height: MediaQuery.of(context).size.height * 0.4,
-      // width: MediaQuery.of(context).size.width * 1,
-      margin: const EdgeInsets.symmetric(horizontal: 10.0),
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.3,
+      width: MediaQuery.of(context).size.width * 0.9,
       child: Swiper(
         onIndexChanged: (value) {
           setState(() {});
         },
-        itemCount: OnBoardBanner.onboardBanner.length,
+        itemCount: widget.itemMap['img'].length,
         itemBuilder: (BuildContext context, int index) {
-          return OnBoardBanner(index: index);
+          return Image.asset(
+            widget.itemMap['img'][index],
+            fit: BoxFit.fill,
+          );
         },
         autoplay: true,
         autoplayDelay: 7000,
@@ -35,10 +37,10 @@ class _OnboardSliderState extends State<OnboardSlider> {
           builder: SwiperCustomPagination(
             builder: (context, config) {
               return CarouselIndicator(
-                count: OnBoardBanner.onboardBanner.length,
+                count: widget.itemMap['img'].length,
                 index: config.activeIndex,
-                color: AppColor.black45,
-                activeColor: AppColor.white,
+                color: AppColor.amber,
+                activeColor: AppColor.black45,
                 height: 5,
                 width: 24,
               );
