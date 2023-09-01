@@ -17,7 +17,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
-  @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
@@ -135,15 +134,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 80,
+            )
           ],
         ),
       ),
     );
-  }
-
-  refresh() {
-    setState(() {
-//all the reload processes
-    });
   }
 }

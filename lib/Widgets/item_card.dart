@@ -1,9 +1,11 @@
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
+import 'package:ecommerce_app_ui_project/view/dashboard_view/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import '../resources/AppAnimation.dart';
 import '../resources/AppInit.dart';
+import '../view/home_view/home_screen.dart';
 import '../view/product_detail_view/productdetail_view.dart';
 
 class ItemCard extends StatefulWidget {
@@ -24,6 +26,15 @@ class _ItemCardState extends State<ItemCard> {
 
   @override
   Widget build(BuildContext context) {
+    _refresh() async {
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+        return const DashboardScreen();
+      }));
+      // setState(() {
+      //   isAdded = AppInit.cartController.isAdded(widget.itemMap['name']);
+      // });
+    }
+
     return InkWell(
       onTap: () {
         Navigator.push(
@@ -38,7 +49,7 @@ class _ItemCardState extends State<ItemCard> {
                       itemMap: widget.itemMap,
                     ),
                   );
-                }));
+                })).then((val) => {_refresh()});
       },
       child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -129,6 +140,7 @@ class _ItemCardState extends State<ItemCard> {
                                       AppInit.cartController.removeFromCart(
                                           widget.itemMap['name']);
                                     }
+                                    _refresh();
                                   });
                                 },
                                 child: (!isAdded)

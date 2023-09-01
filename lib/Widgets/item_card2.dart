@@ -14,6 +14,7 @@ class ItemCard2 extends StatelessWidget {
         Navigator.push(
             context,
             PageRouteBuilder(
+                maintainState: true,
                 transitionDuration: const Duration(milliseconds: 500),
                 reverseTransitionDuration: const Duration(milliseconds: 500),
                 pageBuilder: (context, animation, secondaryAnimation) {
