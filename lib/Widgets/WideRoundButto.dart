@@ -10,20 +10,23 @@ class WideRoundButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 10),
-        height: 50,
-        width: MediaQuery.of(context).size.width * 0.9,
-        decoration: BoxDecoration(
-          color: AppColor.secondaryColor,
-          borderRadius: BorderRadius.circular(10),
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          height: 50,
+          width: MediaQuery.of(context).size.width * 0.9,
+          decoration: BoxDecoration(
+            color: AppColor.secondaryColor,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Center(
+              child: Text(
+            title,
+            style: const TextStyle(
+                color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+          )),
         ),
-        child: Center(
-            child: Text(
-          title,
-          style: const TextStyle(
-              color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
-        )),
       ),
     );
   }

@@ -2,9 +2,12 @@ import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:ecommerce_app_ui_project/resources/AppInit.dart';
 import 'package:flutter/material.dart';
 
+import '../../../Utils/util_toast.dart';
+
 class CartItemGenerator extends StatefulWidget {
+  final Function(bool) isUpdated;
   final bool isExtended;
-  const CartItemGenerator({required this.isExtended});
+  const CartItemGenerator({required this.isExtended, required this.isUpdated});
 
   @override
   State<CartItemGenerator> createState() => _CartItemGeneratorState();
@@ -14,7 +17,7 @@ class _CartItemGeneratorState extends State<CartItemGenerator> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        physics: const NeverScrollableScrollPhysics(),
+        //physics: const NeverScrollableScrollPhysics(),
         padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
         shrinkWrap: true,
         itemCount: (widget.isExtended)
@@ -81,8 +84,46 @@ class _CartItemGeneratorState extends State<CartItemGenerator> {
                         // Minus
                         GestureDetector(
                           onTap: () {
-                            AppInit.cartController
-                                .quantityDecrement(context, index);
+                            setState(() {
+                              if (AppInit.cartController.cartItems[index]
+                                      ['quantity'] <=
+                                  1) {
+                                showDialog(
+                                    context: context,
+                                    builder: ((context) => AlertDialog(
+                                          title: const Text("Remove item"),
+                                          content: const Text(
+                                              "Are you sure you want to remove this item?"),
+                                          actions: [
+                                            TextButton(
+                                                onPressed: () {
+                                                  widget.isUpdated(true);
+                                                  Navigator.of(context)
+                                                      .pop(false);
+                                                },
+                                                child: const Text("No")),
+                                            TextButton(
+                                                onPressed: () {
+                                                  AppInit.cartController
+                                                      .removeFromCart(AppInit
+                                                              .cartController
+                                                              .cartItems[index]
+                                                          ['name']);
+                                                  widget.isUpdated(true);
+                                                  Navigator.of(context)
+                                                      .pop(false);
+                                                },
+                                                child: const Text("Yes")),
+                                          ],
+                                        )));
+                              } else if (AppInit.cartController.cartItems[index]
+                                      ['quantity'] >
+                                  1) {
+                                AppInit.cartController.cartItems[index]
+                                    ['quantity']--;
+                                widget.isUpdated(true);
+                              }
+                            });
                           },
                           child: CircleAvatar(
                             radius: 15,
@@ -112,8 +153,20 @@ class _CartItemGeneratorState extends State<CartItemGenerator> {
                         // Plus
                         GestureDetector(
                           onTap: () {
-                            AppInit.cartController.quantityIncrement(index);
-                            setState(() {});
+                            setState(() {
+                              if (AppInit.cartController.cartItems[index]
+                                      ['quantity'] >=
+                                  10) {
+                                UtilToast().showToast(
+                                    "You can't add more than 10 items");
+                              } else if (AppInit.cartController.cartItems[index]
+                                      ['quantity'] <
+                                  10) {
+                                AppInit.cartController.cartItems[index]
+                                    ['quantity']++;
+                              }
+                              widget.isUpdated(true);
+                            });
                           },
                           child: CircleAvatar(
                             backgroundColor: AppColor.black45,
