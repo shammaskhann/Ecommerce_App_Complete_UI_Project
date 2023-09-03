@@ -1,10 +1,10 @@
-import 'package:ecommerce_app_ui_project/resources/AppInit.dart';
 import 'package:flutter/material.dart';
 
 import '../../../resources/AppColor.dart';
 
-class CartAppBar extends StatelessWidget {
-  const CartAppBar({super.key});
+class StandardAppBar extends StatelessWidget {
+  final String title;
+  const StandardAppBar({required this.title, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class CartAppBar extends StatelessWidget {
           width: 8,
         ),
         Text(
-          'Shopping Cart (${AppInit.cartController.cartItems.length})',
+          title,
           style: TextStyle(
               fontSize: 16,
               fontFamily: 'Manrope',

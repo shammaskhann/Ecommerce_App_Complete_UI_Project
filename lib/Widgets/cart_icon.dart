@@ -1,9 +1,7 @@
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:ecommerce_app_ui_project/resources/AppIcon.dart';
-import 'package:ecommerce_app_ui_project/view/home_view/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../resources/AppInit.dart';
 import '../view/cart_view/cart_screen.dart';
 

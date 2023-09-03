@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-
 import '../../../Widgets/WideRoundButto.dart';
 import '../../../resources/AppColor.dart';
 import '../../../resources/AppInit.dart';
-import '../../checkout_view.dart/screens/location_selection_screen.dart';
 
 class PriceCheckoutArea extends StatefulWidget {
-  const PriceCheckoutArea({super.key});
+  final String title;
+  final VoidCallback onTap;
+  const PriceCheckoutArea(
+      {required this.title, required this.onTap, super.key});
 
   @override
   State<PriceCheckoutArea> createState() => _PriceCheckoutAreaState();
@@ -85,13 +86,8 @@ class _PriceCheckoutAreaState extends State<PriceCheckoutArea> {
           ),
           const SizedBox(height: 20),
           WideRoundButton(
-            title: 'Proceed To Checkout',
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const LocationSelectionScreen()));
-            },
+            title: widget.title,
+            onTap: widget.onTap,
           ),
         ]),
       ),

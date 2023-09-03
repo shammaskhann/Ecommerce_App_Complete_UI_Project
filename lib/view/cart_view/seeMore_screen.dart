@@ -1,7 +1,8 @@
+import 'package:ecommerce_app_ui_project/resources/AppInit.dart';
+import 'package:ecommerce_app_ui_project/view/StandardAppBar/appbar_view.dart';
 import 'package:flutter/material.dart';
 
 import 'Widgets/PriceCheckout_Widget.dart';
-import 'Widgets/cart_Appbar.dart';
 import 'Widgets/cart_item_card_view.dart';
 
 class SeeMore_Screen extends StatefulWidget {
@@ -16,17 +17,21 @@ class _SeeMore_ScreenState extends State<SeeMore_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-          child: Container(
+          child: SizedBox(
         height: MediaQuery.of(context).size.height,
         child: Column(
           children: [
-            CartAppBar(),
-            Container(
-              height: MediaQuery.of(context).size.height * 0.6,
+            StandardAppBar(
+              title:
+                  'Shopping Cart (${AppInit.cartController.cartItems.length})',
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.5,
               child: CartItemGenerator(
                 isExtended: true,
                 isUpdated: (bool isUpdated) async {
-                  await Future.delayed(const Duration(seconds: 2));
+                  await AppInit.cartController.setCartLocalStorage();
+                  // await Future.delayed(const Duration(seconds: 2));
                   setState(() {});
                 },
               ),
@@ -57,7 +62,11 @@ class _SeeMore_ScreenState extends State<SeeMore_Screen> {
               ],
             ),
             const Spacer(),
-            PriceCheckoutArea(),
+            PriceCheckoutArea(
+                title: 'Proceed To Checkout',
+                onTap: () {
+                  Navigator.pushNamed(context, '/selectLocation');
+                }),
           ],
         ),
       )),

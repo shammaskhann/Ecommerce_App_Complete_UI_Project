@@ -5,7 +5,6 @@ import 'package:lottie/lottie.dart';
 
 import '../resources/AppAnimation.dart';
 import '../resources/AppInit.dart';
-import '../view/home_view/home_screen.dart';
 import '../view/product_detail_view/productdetail_view.dart';
 
 class ItemCard extends StatefulWidget {

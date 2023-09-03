@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ecommerce_app_ui_project/Utils/util_toast.dart';
 
 class CartController {
@@ -17,19 +19,34 @@ class CartController {
 
   isAdded(String name) {
     bool isAdded = false;
-    cartItems.forEach((element) {
+    for (var element in cartItems) {
       if (element['name'] == name) {
         isAdded = true;
       }
-    });
+    }
     return isAdded;
   }
 
   double totalPrice() {
     double total = 0;
-    cartItems.forEach((element) {
+    for (var element in cartItems) {
       total += element['price'] * element['quantity'];
-    });
+    }
     return total;
+  }
+
+  setCartLocalStorage() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    String encodedCart = json.encode(cartItems);
+    pref.setString('cartItems', encodedCart);
+  }
+
+  fetchCartLocalStorage() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    String? encodedCart = pref.getString('cartItems');
+    if (encodedCart != null) {
+      List decodedFavItems = json.decode(encodedCart);
+      cartItems = json.decode(encodedCart!);
+    }
   }
 }

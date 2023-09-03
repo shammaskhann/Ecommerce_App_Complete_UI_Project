@@ -1,8 +1,9 @@
 import 'package:ecommerce_app_ui_project/model/Recomendation/recomended_item.dart';
-import 'package:ecommerce_app_ui_project/model/User/cart_services.dart';
+import 'package:ecommerce_app_ui_project/model/User/Cart/cart_services.dart';
+import 'package:ecommerce_app_ui_project/model/User/PaymentDetal/card_detail_controller.dart';
 import '../model/Items/items_sevices.dart';
 import '../model/User/Location/location_controller.dart';
-import '../model/User/fav_service.dart';
+import '../model/User/Favourite/fav_service.dart';
 import '../model/User/user_controller.dart';
 import '../model/category/categoryFilter_service.dart';
 import '../model/category/category_services.dart';
@@ -17,4 +18,5 @@ class AppInit {
   static CategoryFilterController categoryFilterController =
       CategoryFilterController();
   static LocationController locationController = LocationController();
+  static CardDetailController cardDetailController = CardDetailController();
 }

@@ -1,3 +1,4 @@
+import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:flutter/material.dart';
 
 class MoreOptionScreen extends StatefulWidget {
@@ -10,6 +11,8 @@ class MoreOptionScreen extends StatefulWidget {
 class _MoreOptionScreenState extends State<MoreOptionScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: AppColor.black100,
+    );
   }
 }

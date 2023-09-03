@@ -1,6 +1,6 @@
 import 'package:ecommerce_app_ui_project/resources/AppInit.dart';
+import 'package:ecommerce_app_ui_project/view/StandardAppBar/appbar_view.dart';
 import 'package:ecommerce_app_ui_project/view/cart_view/Widgets/PriceCheckout_Widget.dart';
-import 'package:ecommerce_app_ui_project/view/cart_view/Widgets/cart_Appbar.dart';
 import 'package:ecommerce_app_ui_project/view/cart_view/seeMore_screen.dart';
 import 'package:flutter/material.dart';
 import 'Widgets/cart_Banner.dart';
@@ -20,11 +20,16 @@ class _CartScreenState extends State<CartScreen> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(
+            Expanded(
                 child: Stack(
               children: [
-                CartBanner(),
-                Positioned(top: 20, left: 5, child: CartAppBar()),
+                const CartBanner(),
+                Positioned(
+                    top: 20,
+                    left: 5,
+                    child: StandardAppBar(
+                        title:
+                            'Shopping Cart (${AppInit.cartController.cartItems.length})')),
               ],
             )),
             //Cart Item View Area and Edit Button
@@ -37,8 +42,9 @@ class _CartScreenState extends State<CartScreen> {
                         CartItemGenerator(
                           isExtended: false,
                           isUpdated: (bool isUpdated) async {
-                            await Future.delayed(
-                                const Duration(milliseconds: 2));
+                            await AppInit.cartController.setCartLocalStorage();
+                            // await Future.delayed(
+                            //     const Duration(milliseconds: 2));
                             setState(() {});
                           },
                         ),
@@ -79,7 +85,12 @@ class _CartScreenState extends State<CartScreen> {
                         const Spacer(),
                         //Total Price and Checkout Button
                         (AppInit.cartController.cartItems.isNotEmpty)
-                            ? PriceCheckoutArea()
+                            ? PriceCheckoutArea(
+                                title: 'Proceed To Checkout',
+                                onTap: () {
+                                  Navigator.pushNamed(
+                                      context, '/selectLocation');
+                                })
                             : Container(),
                       ],
                     ),

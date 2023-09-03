@@ -32,7 +32,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
       resizeToAvoidBottomInset: false,
       body: PageView(
         controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
         children: List.generate(Page.length, (index) => Page[index]),
       ),
       extendBody: true,
@@ -99,6 +98,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ],
       ),
+      backgroundColor: Colors.transparent,
     );
   }
 }

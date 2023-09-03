@@ -6,6 +6,7 @@ import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:ecommerce_app_ui_project/view/dashboard_view/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import '../../resources/AppInit.dart';
 import 'Widgets/onboard_slider.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -17,6 +18,14 @@ class OnBoardingScreen extends StatefulWidget {
 
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   bool loading = false;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    AppInit.cartController.fetchCartLocalStorage();
+    AppInit.favController.fetchFavLocalStorage();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,10 +56,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   loading = true;
                 });
                 Timer(const Duration(seconds: 2), () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const DashboardScreen()));
+                  Navigator.pushReplacementNamed(context, '/dashboard');
                 });
               },
             )

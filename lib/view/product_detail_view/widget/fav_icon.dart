@@ -5,7 +5,8 @@ import '../../../resources/AppInit.dart';
 
 class FavICon extends StatefulWidget {
   final Map ItemMap;
-  const FavICon({required this.ItemMap, super.key});
+  final Function(bool) isUpdated;
+  const FavICon({required this.ItemMap, required this.isUpdated, super.key});
 
   @override
   State<FavICon> createState() => _FavIConState();
@@ -28,6 +29,7 @@ class _FavIConState extends State<FavICon> {
           } else {
             AppInit.favController.removeFromFav(widget.ItemMap['name']);
           }
+          widget.isUpdated(true);
           setState(() {
             isSelected = !isSelected;
           });

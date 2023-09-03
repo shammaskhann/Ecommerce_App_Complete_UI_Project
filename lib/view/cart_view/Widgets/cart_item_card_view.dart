@@ -7,7 +7,7 @@ import '../../../Utils/util_toast.dart';
 class CartItemGenerator extends StatefulWidget {
   final Function(bool) isUpdated;
   final bool isExtended;
-  const CartItemGenerator({required this.isExtended, required this.isUpdated});
+  const CartItemGenerator({super.key, required this.isExtended, required this.isUpdated});
 
   @override
   State<CartItemGenerator> createState() => _CartItemGeneratorState();
