@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:ecommerce_app_ui_project/view/cart_view/Widgets/PriceCheckout_Widget.dart';
 import 'package:ecommerce_app_ui_project/view/checkout_view/CutsomTextFeild/custom_textfield.dart';
 import 'package:flutter/material.dart';
@@ -69,6 +71,14 @@ class AddCardScreen extends StatelessWidget {
         PriceCheckoutArea(
             title: 'Make Payment',
             onTap: () {
+              // AppInit.orderController.createOrder(
+              //   76500 + Random().nextInt(99 - 10),
+              //   AppInit.cartController.cartItems,
+              //   'Heavy Driver',
+              //   AppInit.cartController.totalPrice(),
+              //   AppInit.locationController.getSelectedLocation(),
+              //   AppInit.cardDetailController.cardDetail[0],
+              // );
               Navigator.pushNamed(context, '/orderPlaced');
             })
       ],

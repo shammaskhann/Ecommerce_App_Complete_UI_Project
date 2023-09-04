@@ -6,13 +6,12 @@ class CardDetailController {
   final expiryDate = TextEditingController();
   final cvv = TextEditingController();
   List cardDetail = [
-    // //demo data
-    // {
-    //   'cardHolderName': 'Shammas Khan',
-    //   'cardNumber': '9876 1234 7654 3210',
-    //   'expiryDate': '01/24',
-    //   'cvv': '420',
-    // }
+    {
+      'cardHolderName': 'Shammas Khan',
+      'cardNumber': '9876 1234 7654 3210',
+      'expiryDate': '01/24',
+      'cvv': '420',
+    }
   ];
   void addCardDetail() {
     cardDetail.add({

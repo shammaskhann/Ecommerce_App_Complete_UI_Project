@@ -2,7 +2,6 @@ import 'package:ecommerce_app_ui_project/Widgets/WideRoundButto.dart';
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:ecommerce_app_ui_project/resources/AppInit.dart';
 import 'package:ecommerce_app_ui_project/view/StandardAppBar/appbar_view.dart';
-import 'package:ecommerce_app_ui_project/view/checkout_view/screens/addCard_screen.dart';
 import 'package:flutter/material.dart';
 
 class LocationSelectionScreen extends StatefulWidget {

@@ -2,6 +2,7 @@ import 'package:ecommerce_app_ui_project/model/Recomendation/recomended_item.dar
 import 'package:ecommerce_app_ui_project/model/User/Cart/cart_services.dart';
 import 'package:ecommerce_app_ui_project/model/User/PaymentDetal/card_detail_controller.dart';
 import '../model/Items/items_sevices.dart';
+import '../model/Orders/order_controller.dart';
 import '../model/User/Location/location_controller.dart';
 import '../model/User/Favourite/fav_service.dart';
 import '../model/User/user_controller.dart';
@@ -19,4 +20,5 @@ class AppInit {
       CategoryFilterController();
   static LocationController locationController = LocationController();
   static CardDetailController cardDetailController = CardDetailController();
+  static OrderController orderController = OrderController();
 }

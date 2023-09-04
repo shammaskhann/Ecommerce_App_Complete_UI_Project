@@ -25,4 +25,14 @@ class LocationController {
     }
     Location[index]['isSelected'] = 'true';
   }
+
+  Map getSelectedLocation() {
+    Map selectedLocationInfo = {};
+    for (var element in Location) {
+      if (element['isSelected'] == 'true') {
+        selectedLocationInfo = element;
+      }
+    }
+    return selectedLocationInfo;
+  }
 }
