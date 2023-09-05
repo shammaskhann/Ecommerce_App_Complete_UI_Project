@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:ecommerce_app_ui_project/Widgets/CenterRoundButton.dart';
 import 'package:ecommerce_app_ui_project/resources/AppAnimation.dart';
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
-import 'package:ecommerce_app_ui_project/view/dashboard_view/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import '../../resources/AppInit.dart';

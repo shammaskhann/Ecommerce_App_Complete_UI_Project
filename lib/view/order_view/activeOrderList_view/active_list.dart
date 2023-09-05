@@ -10,10 +10,11 @@ class CurrentOrderList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return (AppInit.cartController.cartItems.isNotEmpty)
+    return (AppInit.orderController.allActiveOrder.isNotEmpty)
         ? ListView.builder(
             shrinkWrap: true,
-            itemCount: AppInit.cartController.cartItems.length,
+            itemCount:
+                AppInit.orderController.allActiveOrder[0]['cartItems'].length,
             itemBuilder: (context, index) {
               return Container(
                   margin:
@@ -34,8 +35,9 @@ class CurrentOrderList extends StatelessWidget {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
-                                image: AssetImage(AppInit
-                                    .cartController.cartItems[index]['img'][0]),
+                                image: AssetImage(
+                                    AppInit.orderController.allActiveOrder[0]
+                                        ['cartItems'][index]['img'][0]),
                                 fit: BoxFit.fill,
                               ),
                             ),
@@ -49,7 +51,7 @@ class CurrentOrderList extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '${AppInit.cartController.cartItems[index]['name']} (x${AppInit.cartController.cartItems[index]['quantity']})',
+                                '${AppInit.orderController.allActiveOrder[0]['cartItems'][index]['name']} (x${AppInit.orderController.allActiveOrder[0]['cartItems'][index]['quantity']})',
                                 style: const TextStyle(
                                     fontFamily: 'Manrope',
                                     fontSize: 14,
@@ -57,7 +59,7 @@ class CurrentOrderList extends StatelessWidget {
                                     color: Colors.grey),
                               ),
                               Text(
-                                '\$${AppInit.cartController.cartItems[0]['price']}',
+                                '\$${AppInit.orderController.allActiveOrder[0]['cartItems'][index]['price']}',
                                 style: const TextStyle(
                                   fontFamily: 'Manrope',
                                   fontSize: 15,
@@ -70,7 +72,7 @@ class CurrentOrderList extends StatelessWidget {
                           const Spacer(),
                           //order id no
                           Text(
-                            'ID: #76533',
+                            'ID: #${AppInit.orderController.allActiveOrder[0]['orderId']}',
                             style: const TextStyle(
                               fontFamily: 'Manrope',
                               fontSize: 15,
@@ -79,9 +81,8 @@ class CurrentOrderList extends StatelessWidget {
                             ),
                           ),
                         ],
-                      )
+                      ),
                       //Second row containing rider info and order track
-                      ,
                       Row(
                         children: [
                           //delivery truck image and rider profile
@@ -156,7 +157,10 @@ class CurrentOrderList extends StatelessWidget {
                                     title: 'Track Order',
                                     textColor: Colors.white,
                                     buttonColor: AppColor.secondaryColor,
-                                    onTap: () {}),
+                                    onTap: () {
+                                      Navigator.pushNamed(
+                                          context, '/trackOrder');
+                                    }),
                               ],
                             ),
                           ),

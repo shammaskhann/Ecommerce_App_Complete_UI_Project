@@ -10,4 +10,5 @@ class AppIcon {
   static var categoryFish = 'assets/icons/categoryFish.svg';
   static var categoryChicken = 'assets/icons/categoryChicken.svg';
   static var vector368 = 'assets/icons/Vector368.svg';
+  static var chat = 'assets/icons/Chat.svg';
 }

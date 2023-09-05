@@ -1,11 +1,9 @@
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:flutter/material.dart';
-
 import '../../../resources/AppInit.dart';
 
 class completedOrderList extends StatefulWidget {
   const completedOrderList({super.key});
-
   @override
   State<completedOrderList> createState() => _completedOrderListState();
 }
@@ -13,10 +11,11 @@ class completedOrderList extends StatefulWidget {
 class _completedOrderListState extends State<completedOrderList> {
   @override
   Widget build(BuildContext context) {
-    return (AppInit.cartController.cartItems.isNotEmpty)
+    return (AppInit.orderController.allOrdersHistory.isNotEmpty)
         ? ListView.builder(
             shrinkWrap: true,
-            itemCount: AppInit.cartController.cartItems.length,
+            itemCount:
+                AppInit.orderController.allOrdersHistory[0]['cartItems'].length,
             itemBuilder: (context, index) {
               return Container(
                   margin:
@@ -37,8 +36,9 @@ class _completedOrderListState extends State<completedOrderList> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               image: DecorationImage(
-                                image: AssetImage(AppInit
-                                    .cartController.cartItems[index]['img'][0]),
+                                image: AssetImage(
+                                    AppInit.orderController.allOrdersHistory[0]
+                                        ['cartItems'][index]['img'][0]),
                                 fit: BoxFit.fill,
                               ),
                             ),
@@ -52,7 +52,7 @@ class _completedOrderListState extends State<completedOrderList> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '${AppInit.cartController.cartItems[index]['name']} (x${AppInit.cartController.cartItems[index]['quantity']})',
+                                '${AppInit.orderController.allOrdersHistory[0]['cartItems'][index]['name']} (x${AppInit.orderController.allOrdersHistory[0]['cartItems'][index]['quantity']})',
                                 style: const TextStyle(
                                     fontFamily: 'Manrope',
                                     fontSize: 14,
@@ -60,7 +60,7 @@ class _completedOrderListState extends State<completedOrderList> {
                                     color: Colors.grey),
                               ),
                               Text(
-                                '\$${AppInit.cartController.cartItems[0]['price']}',
+                                '${AppInit.orderController.allOrdersHistory[0]['cartItems'][index]['name']}',
                                 style: const TextStyle(
                                   fontFamily: 'Manrope',
                                   fontSize: 15,
@@ -73,7 +73,7 @@ class _completedOrderListState extends State<completedOrderList> {
                           const Spacer(),
                           //order id no
                           Text(
-                            'ID: #76533',
+                            'ID: ${AppInit.orderController.allOrdersHistory[0]['orderId']}',
                             style: const TextStyle(
                               fontFamily: 'Manrope',
                               fontSize: 15,
@@ -83,18 +83,18 @@ class _completedOrderListState extends State<completedOrderList> {
                           ),
                         ],
                       ),
+                      //Divider
                       const SizedBox(
                         height: 20,
                       ),
                       //Second row containing rider info and order track
-
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           //delivery truck image and rider profile
-                          Text(
+                          const Text(
                             '02/10/2021',
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontFamily: 'Manrope',
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
