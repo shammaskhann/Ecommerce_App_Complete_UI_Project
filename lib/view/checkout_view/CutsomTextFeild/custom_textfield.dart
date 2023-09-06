@@ -7,12 +7,14 @@ class CustomTextFeild extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final TextInputType keyboardType;
+  final String? Function(String?)? validator;
   const CustomTextFeild({
     Key? key,
     required this.title,
     required this.hintText,
     required this.controller,
     required this.keyboardType,
+    required this.validator,
   }) : super(key: key);
 
   @override
@@ -53,6 +55,7 @@ class CustomTextFeild extends StatelessWidget {
               borderSide: BorderSide(width: .5, color: Colors.red),
             ),
           ),
+          validator: validator,
         )
       ],
     );

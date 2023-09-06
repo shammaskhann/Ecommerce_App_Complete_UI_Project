@@ -30,9 +30,8 @@ class MyApp extends StatelessWidget {
         '/favorite': (context) => const FavoriteScreen(),
         '/moreOption': (context) => const MoreOptionScreen(),
         '/selectLocation': (context) => const LocationSelectionScreen(),
-        '/addCard': (context) => const AddCardScreen(),
+        '/addCard': (context) => AddCardScreen(),
         '/orderPlaced': (context) => const OrderPlacedScreen(),
-        '/trackOrder': (context) => const TrackOrderSceen(),
       },
       onGenerateRoute: (settings) {
         if (settings.name == '/extended_category') {
@@ -41,6 +40,30 @@ class MyApp extends StatelessWidget {
             builder: (context) {
               return ExtendCategoryScreen(
                 index: index,
+              );
+            },
+          );
+        }
+        if (settings.name == '/trackOrder') {
+          final orderId = settings.arguments as int;
+          final String productName = settings.arguments as String;
+          final int productQuantity = settings.arguments as int;
+          final double productPrice = settings.arguments as double;
+          final String cardNumber = settings.arguments as String;
+          final String cardHolderName = settings.arguments as String;
+          final String deliveryMan = settings.arguments as String;
+          final String deliveryAddress = settings.arguments as String;
+          return MaterialPageRoute(
+            builder: (context) {
+              return TrackOrderSceen(
+                orderID: orderId,
+                productName: productName,
+                productQuantity: productQuantity,
+                productPrice: productPrice,
+                cardNumber: cardNumber,
+                cardHolderName: cardHolderName,
+                deliveryMan: deliveryMan,
+                deliveryAddress: deliveryAddress,
               );
             },
           );

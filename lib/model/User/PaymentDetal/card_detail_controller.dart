@@ -5,21 +5,14 @@ class CardDetailController {
   final cardNumber = TextEditingController();
   final expiryDate = TextEditingController();
   final cvv = TextEditingController();
-  List cardDetail = [
-    {
-      'cardHolderName': 'Shammas Khan',
-      'cardNumber': '9876 1234 7654 3210',
-      'expiryDate': '01/24',
-      'cvv': '420',
-    }
-  ];
-  void addCardDetail() {
-    cardDetail.add({
-      'cardHolderName': cardHolderName.text,
-      'cardNumber': cardNumber.text,
-      'expiryDate': expiryDate.text,
-      'cvv': cvv.text,
-    });
+
+  Map addCardDetail() {
+    Map cardDetail = {};
+    cardDetail['cardHolderName'] = cardHolderName.text;
+    cardDetail['cardNumber'] = cardNumber.text;
+    cardDetail['expiryDate'] = expiryDate.text;
+    cardDetail['cvv'] = cvv.text;
+    return cardDetail;
   }
 
   // setCardDetail() async {

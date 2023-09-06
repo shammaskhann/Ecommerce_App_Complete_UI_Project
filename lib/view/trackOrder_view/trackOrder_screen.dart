@@ -6,7 +6,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class TrackOrderSceen extends StatelessWidget {
-  const TrackOrderSceen({super.key});
+  final int orderID;
+  final String productName;
+  final int productQuantity;
+  final double productPrice;
+  final String cardNumber;
+  final String cardHolderName;
+  final String deliveryMan;
+  final String deliveryAddress;
+  const TrackOrderSceen(
+      {required this.orderID,
+      required this.productName,
+      required this.productQuantity,
+      required this.productPrice,
+      required this.cardNumber,
+      required this.cardHolderName,
+      required this.deliveryMan,
+      required this.deliveryAddress,
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -234,20 +251,22 @@ class TrackOrderSceen extends StatelessWidget {
                             ),
                             //Order Detail
                             orderDetailTemplete(
-                                'Order Details', '(ID #765433)'),
+                                'Order Details', '(ID #${orderID})'),
                             //Product Name
                             orderDetailTemplete(
-                                'Product Name:', 'Macbook Pro 2020'),
+                                'Product Name:', '${productName}}'),
                             //Quantity
-                            orderDetailTemplete('Quantity:', '3'),
-                            //Price
-                            orderDetailTemplete('Price:', '\$ 3000'),
-                            // Card Number
                             orderDetailTemplete(
-                                'Card Number:', '**** **** **** 1234'),
+                                'Quantity:', '${productQuantity}'),
+                            //Price
+                            orderDetailTemplete('Price:',
+                                '\$${productPrice * productQuantity}'),
+                            // Card Number
+                            orderDetailTemplete('Card Number:',
+                                '**** **** **** ${cardNumber.substring(15)}'),
                             // Card Holder Name
                             orderDetailTemplete(
-                                'Card Holder Name:', 'John Smith'),
+                                'Card Holder Name:', '${cardHolderName}'),
                             //Order Status
                             orderDetailTemplete('Order Status:', 'Pending'),
                           ],

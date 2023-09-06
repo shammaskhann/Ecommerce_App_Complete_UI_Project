@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../resources/AppColor.dart';
 import '../../../resources/AppImage.dart';
 import '../../../resources/AppInit.dart';
+import '../../trackOrder_view/trackOrder_screen.dart';
 import 'TrackOrderButton.dart';
 
 class CurrentOrderList extends StatelessWidget {
@@ -158,8 +159,50 @@ class CurrentOrderList extends StatelessWidget {
                                     textColor: Colors.white,
                                     buttonColor: AppColor.secondaryColor,
                                     onTap: () {
-                                      Navigator.pushNamed(
-                                          context, '/trackOrder');
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  TrackOrderSceen(
+                                                    orderID: AppInit
+                                                            .orderController
+                                                            .allActiveOrder[0]
+                                                        ['orderId'],
+                                                    productName: AppInit
+                                                                .orderController
+                                                                .allActiveOrder[
+                                                            0]['cartItems']
+                                                        [index]['name'],
+                                                    productQuantity: AppInit
+                                                                .orderController
+                                                                .allActiveOrder[
+                                                            0]['cartItems']
+                                                        [index]['quantity'],
+                                                    productPrice: AppInit
+                                                        .orderController
+                                                        .allActiveOrder[0]
+                                                            ['cartItems'][index]
+                                                            ['price']
+                                                        .toDouble(),
+                                                    cardNumber: AppInit
+                                                                .orderController
+                                                                .allActiveOrder[
+                                                            0]['cardDetail']
+                                                        ['cardNumber'],
+                                                    cardHolderName: AppInit
+                                                                .orderController
+                                                                .allActiveOrder[
+                                                            0]['cardDetail']
+                                                        ['cardHolderName'],
+                                                    deliveryMan: AppInit
+                                                            .orderController
+                                                            .allActiveOrder[0]
+                                                        ['deliveryMan'],
+                                                    deliveryAddress: AppInit
+                                                            .orderController
+                                                            .allActiveOrder[0]
+                                                        ['location']['address'],
+                                                  )));
                                     }),
                               ],
                             ),
