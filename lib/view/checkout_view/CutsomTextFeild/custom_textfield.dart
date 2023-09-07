@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import '../../../resources/AppColor.dart';
 
 class CustomTextFeild extends StatelessWidget {
   final String title;
   final String hintText;
+  final formatter;
   final TextEditingController controller;
   final TextInputType keyboardType;
   final String? Function(String?)? validator;
   const CustomTextFeild({
     Key? key,
     required this.title,
+    this.formatter,
     required this.hintText,
     required this.controller,
     required this.keyboardType,
@@ -31,6 +34,7 @@ class CustomTextFeild extends StatelessWidget {
               color: Colors.grey),
         ),
         TextFormField(
+          inputFormatters: formatter,
           controller: controller,
           keyboardType: keyboardType,
           style: const TextStyle(

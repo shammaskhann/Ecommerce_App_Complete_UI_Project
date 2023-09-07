@@ -132,13 +132,13 @@ class TrackOrderSceen extends StatelessWidget {
                   ),
                 ],
               ), //Delivery Time & Addresss
-              const Padding(
-                padding: EdgeInsets.only(left: 20.0, top: 10),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, top: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     //Delivery Time
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Icon(
@@ -171,24 +171,24 @@ class TrackOrderSceen extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     //Delivery Address
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.location_on_outlined,
                           color: Colors.grey,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 20,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'Delivery Address',
                               style: TextStyle(
                                   fontSize: 14,
@@ -197,7 +197,7 @@ class TrackOrderSceen extends StatelessWidget {
                                   fontFamily: 'Manrope'),
                             ),
                             Text(
-                              'Star Garage',
+                              '${deliveryAddress}',
                               style: TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
@@ -254,7 +254,7 @@ class TrackOrderSceen extends StatelessWidget {
                                 'Order Details', '(ID #${orderID})'),
                             //Product Name
                             orderDetailTemplete(
-                                'Product Name:', '${productName}}'),
+                                'Product Name:', '${productName}'),
                             //Quantity
                             orderDetailTemplete(
                                 'Quantity:', '${productQuantity}'),

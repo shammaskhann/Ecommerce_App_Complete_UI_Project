@@ -15,6 +15,13 @@ class CardDetailController {
     return cardDetail;
   }
 
+  void dispose() {
+    cardHolderName.dispose();
+    cardNumber.dispose();
+    expiryDate.dispose();
+    cvv.dispose();
+  }
+
   // setCardDetail() async {
   //   SharedPreferences prefs = await SharedPreferences.getInstance();
   //   String encodedCardDetail = json.encode(cardDetail);

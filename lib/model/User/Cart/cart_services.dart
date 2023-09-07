@@ -48,4 +48,8 @@ class CartController {
       cartItems = json.decode(encodedCart!);
     }
   }
+
+  clearCart() {
+    cartItems.clear();
+  }
 }

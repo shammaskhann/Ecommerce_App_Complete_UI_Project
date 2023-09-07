@@ -1,7 +1,10 @@
 import 'dart:math';
+import 'package:ecommerce_app_ui_project/resources/AppAnimation.dart';
 import 'package:ecommerce_app_ui_project/view/cart_view/Widgets/PriceCheckout_Widget.dart';
 import 'package:ecommerce_app_ui_project/view/checkout_view/CutsomTextFeild/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import '../../../resources/AppInit.dart';
 import '../../StandardAppBar/appbar_view.dart';
 
@@ -46,6 +49,11 @@ class AddCardScreen extends StatelessWidget {
                     ),
                     CustomTextFeild(
                         title: 'CARD NUMBER',
+                        formatter: [
+                          MaskTextInputFormatter(
+                              mask: '#### #### #### ####',
+                              filter: {"#": RegExp(r'[0-9]')})
+                        ],
                         hintText: '1234 5678 9012 3456',
                         controller: AppInit.cardDetailController.cardNumber,
                         keyboardType: TextInputType.phone,
@@ -65,6 +73,11 @@ class AddCardScreen extends StatelessWidget {
                           width: MediaQuery.of(context).size.width * .4,
                           child: CustomTextFeild(
                               title: 'EXPIRY DATE',
+                              formatter: [
+                                MaskTextInputFormatter(
+                                    mask: '##/##',
+                                    filter: {"#": RegExp(r'[0-9]')})
+                              ],
                               hintText: 'MM/YY',
                               controller:
                                   AppInit.cardDetailController.expiryDate,
@@ -81,6 +94,11 @@ class AddCardScreen extends StatelessWidget {
                           width: MediaQuery.of(context).size.width * .4,
                           child: CustomTextFeild(
                               title: 'CVV',
+                              formatter: [
+                                MaskTextInputFormatter(
+                                    mask: '###',
+                                    filter: {"#": RegExp(r'[0-9]')})
+                              ],
                               hintText: '123',
                               controller: AppInit.cardDetailController.cvv,
                               keyboardType: TextInputType.number,
@@ -115,7 +133,29 @@ class AddCardScreen extends StatelessWidget {
                           .getSelectedLocation(), //Location of User
                       AppInit.cardDetailController.addCardDetail(),
                     );
-                    Navigator.pushNamed(context, '/orderPlaced');
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Lottie.asset(
+                            AppAnimation.orderCompletedAnimation,
+                            height: 150,
+                            width: 150),
+                        content: const Text(
+                          'Your Order has been placed successfully',
+                          textAlign: TextAlign.center,
+                        ),
+                        actions: [
+                          TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop(false);
+                              },
+                              child: Text('OK'))
+                        ],
+                      ),
+                    );
+                    // AppInit.cartController.clearCart();
+                    // AppInit.cardDetailController.dispose();
+                    //Navigator.pushNamed(context, '/orderPlaced');
                   }
                 })
           ],
