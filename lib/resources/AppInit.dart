@@ -19,6 +19,6 @@ class AppInit {
   static CategoryFilterController categoryFilterController =
       CategoryFilterController();
   static LocationController locationController = LocationController();
-  static CardDetailController cardDetailController = CardDetailController();
   static OrderController orderController = OrderController();
+  static CardDetailController cardDetailController = CardDetailController();
 }

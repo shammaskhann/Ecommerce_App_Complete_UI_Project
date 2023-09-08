@@ -15,11 +15,11 @@ class CardDetailController {
     return cardDetail;
   }
 
-  void dispose() {
-    cardHolderName.dispose();
-    cardNumber.dispose();
-    expiryDate.dispose();
-    cvv.dispose();
+  clear() {
+    cardHolderName.clear();
+    cardNumber.clear();
+    expiryDate.clear();
+    cvv.clear();
   }
 
   // setCardDetail() async {

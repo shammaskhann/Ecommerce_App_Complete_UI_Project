@@ -124,8 +124,8 @@ class AddCardScreen extends StatelessWidget {
                       76500 +
                           Random()
                               .nextInt(99 - 10), //for producing random id no
-                      AppInit.cartController
-                          .cartItems, //List of Carts Item forwarded
+                      List.from(AppInit.cartController
+                          .cartItems), //List of Carts Item forwarded
                       'Heavy Driver', // Driver Name
                       AppInit.cartController
                           .totalPrice(), // Total Price of Cart Items
@@ -133,6 +133,7 @@ class AddCardScreen extends StatelessWidget {
                           .getSelectedLocation(), //Location of User
                       AppInit.cardDetailController.addCardDetail(),
                     );
+                    //AppInit.orderController.test1();
                     showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
@@ -146,16 +147,25 @@ class AddCardScreen extends StatelessWidget {
                         ),
                         actions: [
                           TextButton(
+                              onPressed: () async {
+                                await AppInit.cartController.clearCart();
+                                await AppInit.cardDetailController.clear();
+                                AppInit.orderController.test1();
+                                Navigator.pushNamed(context, '/orderPlaced');
+                              },
+                              child: const Text('Track Order')),
+                          TextButton(
                               onPressed: () {
-                                Navigator.of(context).pop(false);
+                                AppInit.cartController.clearCart();
+                                AppInit.cardDetailController.clear();
+                                Navigator.of(context).pushNamedAndRemoveUntil(
+                                    '/dashboard',
+                                    (Route<dynamic> route) => false);
                               },
                               child: Text('OK'))
                         ],
                       ),
                     );
-                    // AppInit.cartController.clearCart();
-                    // AppInit.cardDetailController.dispose();
-                    //Navigator.pushNamed(context, '/orderPlaced');
                   }
                 })
           ],

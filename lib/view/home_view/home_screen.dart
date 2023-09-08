@@ -113,30 +113,30 @@ class _HomeScreenState extends State<HomeScreen> {
                             color: AppColor.black90),
                       ),
                     ),
-                    SizedBox(
-                      //color: Colors.red,
-                      height: MediaQuery.of(context).size.height * 0.25,
-                      width: double.infinity,
-                      child: Center(
-                        child: ListView.builder(
-                            shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                            itemCount:
-                                AppInit.recomendedItems.RecomenededItem.length,
-                            itemBuilder: (context, index) {
-                              return ItemCard(
-                                  itemMap: AppInit
-                                      .recomendedItems.RecomenededItem[index]);
-                            }),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 90.0),
+                      child: SizedBox(
+                        //color: Colors.red,
+                        height: MediaQuery.of(context).size.height * 0.25,
+                        width: double.infinity,
+                        child: Center(
+                          child: ListView.builder(
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              itemCount: AppInit
+                                  .recomendedItems.RecomenededItem.length,
+                              itemBuilder: (context, index) {
+                                return ItemCard(
+                                    itemMap: AppInit.recomendedItems
+                                        .RecomenededItem[index]);
+                              }),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-            const SizedBox(
-              height: 80,
-            )
           ],
         ),
       ),

@@ -1,12 +1,20 @@
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
+import '../resources/AppAnimation.dart';
+import '../resources/AppInit.dart';
 import '../view/product_detail_view/productdetail_view.dart';
 
-class ItemCard2 extends StatelessWidget {
+class ItemCard2 extends StatefulWidget {
   final Map itemMap;
-  const ItemCard2({super.key, required this.itemMap});
+  const ItemCard2({required this.itemMap, super.key});
 
+  @override
+  State<ItemCard2> createState() => _ItemCard2State();
+}
+
+class _ItemCard2State extends State<ItemCard2> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -21,7 +29,7 @@ class ItemCard2 extends StatelessWidget {
                   return FadeTransition(
                     opacity: animation,
                     child: ProductDetailScreen(
-                      itemMap: itemMap,
+                      itemMap: widget.itemMap,
                     ),
                   );
                 }));
@@ -45,7 +53,7 @@ class ItemCard2 extends StatelessWidget {
                       Container(
                         child: Center(
                           child: Image.asset(
-                            itemMap['img'][0],
+                            widget.itemMap['img'][0],
                             height: 140,
                             width: 140,
                           ),
@@ -55,18 +63,17 @@ class ItemCard2 extends StatelessWidget {
                         bottom: 0,
                         right: 10,
                         child: InkWell(
-                          onTap: () {
-                            //AppInit.cartController.addToCart(itemMap);
-                          },
-                          child: CircleAvatar(
-                              backgroundColor: AppColor.secondaryColor,
-                              radius: 16,
-                              child: const Icon(
-                                Icons.add,
-                                color: Colors.white,
-                                size: 18,
-                              )),
-                        ),
+                            onTap: () {
+                              setState(() {});
+                            },
+                            child: CircleAvatar(
+                                backgroundColor: AppColor.secondaryColor,
+                                radius: 16,
+                                child: const Icon(
+                                  Icons.add,
+                                  color: Colors.white,
+                                  size: 18,
+                                ))),
                       ),
                     ],
                   ),
@@ -80,7 +87,7 @@ class ItemCard2 extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '\$${itemMap['price']}',
+                        '\$${widget.itemMap['price']}',
                         style: TextStyle(
                             color: AppColor.black100,
                             fontFamily: 'Manrope',
@@ -91,7 +98,7 @@ class ItemCard2 extends StatelessWidget {
                         height: 5,
                       ),
                       Text(
-                        itemMap['name'],
+                        widget.itemMap['name'],
                         style: TextStyle(
                             color: AppColor.black60,
                             fontFamily: 'Manrope',

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:ecommerce_app_ui_project/view/category_view/catergoryScreen/Widget/itemCard_view.dart';
 
+import '../../productPage_view/product_view.dart';
+
 class VegShop extends StatelessWidget {
   const VegShop({super.key});
 
@@ -9,20 +11,48 @@ class VegShop extends StatelessWidget {
   Widget build(BuildContext context) {
     List allBanner = [
       {
-        'title': "Halal Meat",
-        'tagline': 'Certified Halal Product',
-        'img': 'assets/images/Halal.png',
-        'imgBack': Colors.green.shade400,
+        'title': "Free Delivery",
+        'tagline': 'Free Delivery on First Order',
+        'img': 'assets/images/freeDelivery.png',
+        'imgBack': Colors.black54,
         'price': 90.99,
-        'onTap': () {},
+        'onTap': () {
+          Navigator.push(
+              context,
+              PageRouteBuilder(
+                  transitionDuration: const Duration(milliseconds: 500),
+                  reverseTransitionDuration: const Duration(milliseconds: 500),
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return FadeTransition(
+                        opacity: animation,
+                        child: const ProductScreen(
+                          title: "Free Delivery",
+                          Itemtag: 'Free Delivery',
+                        ));
+                  }));
+        },
       },
       {
-        'title': "100% Fresh Meat",
-        'tagline': 'Guaranteed Fresh Meat',
-        'img': 'assets/images/Fresh100.png',
-        'imgBack': Colors.green.shade700,
-        'price': 50.00,
-        'onTap': () {},
+        'title': "Special Offer",
+        'tagline': 'Save 50% on First Order',
+        'img': 'assets/images/specialOffer.png',
+        'imgBack': Colors.red.shade400,
+        'price': 60.99,
+        'onTap': () {
+          Navigator.push(
+              context,
+              PageRouteBuilder(
+                  transitionDuration: const Duration(milliseconds: 500),
+                  reverseTransitionDuration: const Duration(milliseconds: 500),
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return FadeTransition(
+                        opacity: animation,
+                        child: const ProductScreen(
+                          title: "Special Offer",
+                          Itemtag: 'Popular',
+                        ));
+                  }));
+        },
       },
       {
         'title': "Fast Home Delivery",
@@ -30,11 +60,26 @@ class VegShop extends StatelessWidget {
         'img': 'assets/images/QuickHomeDelivery.png',
         'imgBack': AppColor.lightAmber,
         'price': 120.99,
-        'onTap': () {},
+        'onTap': () {
+          Navigator.push(
+              context,
+              PageRouteBuilder(
+                  transitionDuration: const Duration(milliseconds: 500),
+                  reverseTransitionDuration: const Duration(milliseconds: 500),
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return FadeTransition(
+                        opacity: animation,
+                        child: const ProductScreen(
+                          title: "Free Delivery",
+                          Itemtag: 'Free Delivery',
+                        ));
+                  }));
+        },
       }
     ];
     return Expanded(
       child: ListView.builder(
+          padding: const EdgeInsets.only(top: 20, bottom: 80),
           shrinkWrap: true,
           itemCount: 3,
           itemBuilder: (context, index) {

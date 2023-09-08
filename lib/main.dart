@@ -33,42 +33,42 @@ class MyApp extends StatelessWidget {
         '/addCard': (context) => AddCardScreen(),
         '/orderPlaced': (context) => const OrderPlacedScreen(),
       },
-      onGenerateRoute: (settings) {
-        if (settings.name == '/extended_category') {
-          final index = settings.arguments as int;
-          return MaterialPageRoute(
-            builder: (context) {
-              return ExtendCategoryScreen(
-                index: index,
-              );
-            },
-          );
-        }
-        if (settings.name == '/trackOrder') {
-          final orderId = settings.arguments as int;
-          final String productName = settings.arguments as String;
-          final int productQuantity = settings.arguments as int;
-          final double productPrice = settings.arguments as double;
-          final String cardNumber = settings.arguments as String;
-          final String cardHolderName = settings.arguments as String;
-          final String deliveryMan = settings.arguments as String;
-          final String deliveryAddress = settings.arguments as String;
-          return MaterialPageRoute(
-            builder: (context) {
-              return TrackOrderSceen(
-                orderID: orderId,
-                productName: productName,
-                productQuantity: productQuantity,
-                productPrice: productPrice,
-                cardNumber: cardNumber,
-                cardHolderName: cardHolderName,
-                deliveryMan: deliveryMan,
-                deliveryAddress: deliveryAddress,
-              );
-            },
-          );
-        }
-      },
+      // onGenerateRoute: (settings) {
+      //   if (settings.name == '/extended_category') {
+      //     final index = settings.arguments as int;
+      //     return MaterialPageRoute(
+      //       builder: (context) {
+      //         return ExtendCategoryScreen(
+      //           index: index,
+      //         );
+      //       },
+      //     );
+      //   }
+      //   if (settings.name == '/trackOrder') {
+      //     final orderId = settings.arguments as int;
+      //     final String productName = settings.arguments as String;
+      //     final int productQuantity = settings.arguments as int;
+      //     final double productPrice = settings.arguments as double;
+      //     final String cardNumber = settings.arguments as String;
+      //     final String cardHolderName = settings.arguments as String;
+      //     final String deliveryMan = settings.arguments as String;
+      //     final String deliveryAddress = settings.arguments as String;
+      //     return MaterialPageRoute(
+      //       builder: (context) {
+      //         return TrackOrderSceen(
+      //           orderID: orderId,
+      //           productName: productName,
+      //           productQuantity: productQuantity,
+      //           productPrice: productPrice,
+      //           cardNumber: cardNumber,
+      //           cardHolderName: cardHolderName,
+      //           deliveryMan: deliveryMan,
+      //           deliveryAddress: deliveryAddress,
+      //         );
+      //       },
+      //     );
+      //   }
+      // },
       debugShowCheckedModeBanner: false,
     );
   }

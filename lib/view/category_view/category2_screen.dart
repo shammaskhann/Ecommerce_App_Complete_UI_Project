@@ -36,13 +36,8 @@ class _ExtendCategoryScreenState extends State<ExtendCategoryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
+    return Column(
       children: [
-        const CategoryAppBar(),
-        const SizedBox(
-          height: 5,
-        ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -194,6 +189,6 @@ class _ExtendCategoryScreenState extends State<ExtendCategoryScreen> {
         ),
         CategoryPage[selectedPage ?? widget.index],
       ],
-    ));
+    );
   }
 }

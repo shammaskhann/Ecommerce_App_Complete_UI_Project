@@ -41,6 +41,10 @@ class CartController {
     pref.setString('cartItems', encodedCart);
   }
 
+  clearCartLocalStorage() {
+    SharedPreferences.getInstance().then((pref) => pref.clear());
+  }
+
   fetchCartLocalStorage() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     String? encodedCart = pref.getString('cartItems');
@@ -51,5 +55,6 @@ class CartController {
 
   clearCart() {
     cartItems.clear();
+    clearCartLocalStorage();
   }
 }

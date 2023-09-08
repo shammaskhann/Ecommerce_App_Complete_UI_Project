@@ -32,12 +32,26 @@ class ChickenShop extends StatelessWidget {
         },
       },
       {
-        'title': "100% Fresh Meat",
-        'tagline': 'Guaranteed Fresh Meat',
-        'img': 'assets/images/Fresh100.png',
-        'imgBack': Colors.green.shade700,
-        'price': 50.00,
-        'onTap': () {},
+        'title': "Free Delivery",
+        'tagline': 'Free Delivery on First Order',
+        'img': 'assets/images/freeDelivery.png',
+        'imgBack': Colors.black54,
+        'price': 90.99,
+        'onTap': () {
+          Navigator.push(
+              context,
+              PageRouteBuilder(
+                  transitionDuration: const Duration(milliseconds: 500),
+                  reverseTransitionDuration: const Duration(milliseconds: 500),
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return FadeTransition(
+                        opacity: animation,
+                        child: const ProductScreen(
+                          title: "Free Delivery",
+                          Itemtag: 'Free Delivery',
+                        ));
+                  }));
+        },
       },
       {
         'title': "Fast Home Delivery",
@@ -45,11 +59,26 @@ class ChickenShop extends StatelessWidget {
         'img': 'assets/images/QuickHomeDelivery.png',
         'imgBack': AppColor.lightAmber,
         'price': 120.99,
-        'onTap': () {},
+        'onTap': () {
+          Navigator.push(
+              context,
+              PageRouteBuilder(
+                  transitionDuration: const Duration(milliseconds: 500),
+                  reverseTransitionDuration: const Duration(milliseconds: 500),
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return FadeTransition(
+                        opacity: animation,
+                        child: const ProductScreen(
+                          title: "Free Delivery",
+                          Itemtag: 'Free Delivery',
+                        ));
+                  }));
+        },
       }
     ];
     return Expanded(
       child: ListView.builder(
+          padding: const EdgeInsets.only(top: 20, bottom: 80),
           shrinkWrap: true,
           itemCount: 3,
           itemBuilder: (context, index) {

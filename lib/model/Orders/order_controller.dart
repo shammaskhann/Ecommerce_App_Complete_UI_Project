@@ -130,7 +130,7 @@ class OrderController {
       },
     },
   ];
-  void createOrder(int orderID, List cartItems, String deliveryMan,
+  createOrder(int orderID, List cartItems, String deliveryMan,
       double totalPrice, Map location, Map cardDetail) {
     //create order
     Map orderDetails = {
@@ -143,5 +143,11 @@ class OrderController {
     };
     print(orderDetails);
     allActiveOrder.add(orderDetails);
+    print('Order Created');
+  }
+
+  void test1() {
+    print('test1');
+    print(allActiveOrder);
   }
 }

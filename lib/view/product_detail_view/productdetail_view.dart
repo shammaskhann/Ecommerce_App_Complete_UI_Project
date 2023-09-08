@@ -111,9 +111,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 FavICon(
                                   ItemMap: widget.itemMap,
                                   isUpdated: (value) {
-                                    setState(() {
-                                      isAdded = value;
-                                    });
+                                    setState(() {});
                                   },
                                 ),
                                 const SizedBox(

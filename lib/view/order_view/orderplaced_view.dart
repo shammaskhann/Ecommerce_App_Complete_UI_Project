@@ -1,11 +1,11 @@
-import 'package:ecommerce_app_ui_project/view/StandardAppBar/appbar_view.dart';
 import 'package:ecommerce_app_ui_project/view/order_view/activeOrderList_view/active_list.dart';
 import 'package:flutter/material.dart';
 import '../../resources/AppColor.dart';
 import 'completedOrder/completedOrderList.dart';
 
 class OrderPlacedScreen extends StatefulWidget {
-  const OrderPlacedScreen({super.key});
+  final int? sPage;
+  const OrderPlacedScreen({this.sPage, super.key});
 
   @override
   State<OrderPlacedScreen> createState() => _OrderPlacedScreenState();
@@ -23,7 +23,39 @@ class _OrderPlacedScreenState extends State<OrderPlacedScreen> {
             // height: MediaQuery.of(context).size.height * .2,
             child: Column(
               children: [
-                const StandardAppBar(title: 'Orders'),
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () => {
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            '/dashboard', (Route<dynamic> route) => false)
+                      },
+                      icon: Container(
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          color: AppColor.black10,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: const Icon(
+                          Icons.arrow_back_ios,
+                          size: 12,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      'Orders',
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'Manrope',
+                          fontWeight: FontWeight.w700,
+                          color: AppColor.black100),
+                    )
+                  ],
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -34,7 +66,7 @@ class _OrderPlacedScreenState extends State<OrderPlacedScreen> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                           side: BorderSide(
-                              color: (selectedPage == 0)
+                              color: (selectedPage == 0 && widget.sPage == null)
                                   ? AppColor.amber
                                   : AppColor.black45,
                               width: 1)),
@@ -47,13 +79,15 @@ class _OrderPlacedScreenState extends State<OrderPlacedScreen> {
                           style: TextStyle(
                               fontFamily: 'Manrope',
                               fontSize: 14,
-                              color: (selectedPage == 0)
+                              color: (selectedPage == 0 && widget.sPage == null)
                                   ? AppColor.white
                                   : AppColor.black45,
                               fontWeight: FontWeight.w600),
                         )),
                       ),
-                      selected: (selectedPage == 0) ? true : false,
+                      selected: (selectedPage == 0 && widget.sPage == null)
+                          ? true
+                          : false,
                       selectedColor: AppColor.amber,
                       backgroundColor: Colors.transparent,
                       onSelected: (value) {
@@ -66,7 +100,7 @@ class _OrderPlacedScreenState extends State<OrderPlacedScreen> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                           side: BorderSide(
-                              color: (selectedPage == 1)
+                              color: (selectedPage == 1 || widget.sPage == 1)
                                   ? AppColor.amber
                                   : AppColor.black45,
                               width: 1)),
@@ -79,13 +113,15 @@ class _OrderPlacedScreenState extends State<OrderPlacedScreen> {
                           style: TextStyle(
                               fontFamily: 'Manrope',
                               fontSize: 14,
-                              color: (selectedPage == 1)
+                              color: (selectedPage == 1 || widget.sPage == 1)
                                   ? AppColor.white
                                   : AppColor.black45,
                               fontWeight: FontWeight.w600),
                         )),
                       ),
-                      selected: (selectedPage == 1) ? true : false,
+                      selected: (selectedPage == 1 || widget.sPage == 1)
+                          ? true
+                          : false,
                       selectedColor: AppColor.amber,
                       backgroundColor: Colors.transparent,
                       onSelected: (value) {
@@ -103,8 +139,9 @@ class _OrderPlacedScreenState extends State<OrderPlacedScreen> {
             ),
           ),
           Expanded(
-            child:
-                (selectedPage == 0) ? CurrentOrderList() : completedOrderList(),
+            child: (selectedPage == 0 && widget.sPage == null)
+                ? CurrentOrderList()
+                : completedOrderList(),
           ),
         ],
       ),

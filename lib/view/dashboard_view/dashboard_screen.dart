@@ -31,12 +31,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: PageView(
+        scrollDirection: Axis.horizontal,
+        onPageChanged: (index) {
+          setState(() {
+            currentPage = index;
+            _controller.index = index;
+          });
+        },
         controller: _pageController,
         children: List.generate(Page.length, (index) => Page[index]),
       ),
       extendBody: true,
       bottomNavigationBar: AnimatedNotchBottomBar(
-        showShadow: false,
+        showShadow: true,
         removeMargins: true,
         notchBottomBarController: _controller,
         durationInMilliSeconds: 300,

@@ -137,7 +137,7 @@ class CurrentOrderList extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Your ${AppInit.cartController.cartItems[index]['name']}',
+                                  'Your ${AppInit.orderController.allActiveOrder[0]['cartItems'][index]['name']}',
                                   style: const TextStyle(
                                     fontSize: 20,
                                     fontFamily: 'Manrope',
