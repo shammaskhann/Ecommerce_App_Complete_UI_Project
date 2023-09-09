@@ -49,7 +49,7 @@ class CartController {
     SharedPreferences pref = await SharedPreferences.getInstance();
     String? encodedCart = pref.getString('cartItems');
     if (encodedCart != null) {
-      cartItems = json.decode(encodedCart!);
+      cartItems = json.decode(encodedCart);
     }
   }
 

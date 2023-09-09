@@ -1,4 +1,9 @@
+import 'package:flutter/cupertino.dart';
+
 class LocationController {
+  var orginController = TextEditingController();
+  var addressController = TextEditingController();
+  var cityController = TextEditingController();
   List Location = [
     {
       'origin': 'Home',
@@ -34,5 +39,21 @@ class LocationController {
       }
     }
     return selectedLocationInfo;
+  }
+
+  addLocation() {
+    Map newLocation = {
+      'origin': orginController.text,
+      'address': addressController.text,
+      'city': cityController.text,
+      'isSelected': 'false'
+    };
+    Location.add(newLocation);
+  }
+
+  controllerCler() {
+    orginController.clear();
+    addressController.clear();
+    cityController.clear();
   }
 }

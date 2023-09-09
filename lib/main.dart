@@ -7,10 +7,7 @@ import 'package:ecommerce_app_ui_project/view/home_view/home_screen.dart';
 import 'package:ecommerce_app_ui_project/view/moreoption_view/moreoption_screen.dart';
 import 'package:ecommerce_app_ui_project/view/onboarding_view/onboarding_screen.dart';
 import 'package:ecommerce_app_ui_project/view/order_view/orderplaced_view.dart';
-import 'package:ecommerce_app_ui_project/view/trackOrder_view/trackOrder_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'view/category_view/category2_screen.dart';
 
 void main() {
   runApp(const MyApp());

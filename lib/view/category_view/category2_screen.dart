@@ -1,5 +1,4 @@
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
-import 'package:ecommerce_app_ui_project/view/category_view/Widget/category_appbar_view.dart';
 import 'package:ecommerce_app_ui_project/view/category_view/catergoryScreen/fruit_shop_view.dart';
 import 'package:ecommerce_app_ui_project/view/category_view/catergoryScreen/seafood_shop_view.dart';
 import 'package:flutter/material.dart';

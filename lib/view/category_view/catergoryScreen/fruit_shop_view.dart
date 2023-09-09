@@ -27,7 +27,7 @@ class FruitShop extends StatelessWidget {
                         opacity: animation,
                         child: const ProductScreen(
                           title: "Lowest Price",
-                          Itemtag: 'Popular',
+                          Itemtag: 'Low Price',
                         ));
                   }));
         },

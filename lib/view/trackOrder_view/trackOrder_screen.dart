@@ -30,6 +30,7 @@ class TrackOrderSceen extends StatelessWidget {
     Size? _size;
     double getTheRightSize(double screenHeight) {
       final maxHeight = 0.15 * screenHeight;
+      // ignore: dead_code
       final calculatedHeight = _size?.height ?? maxHeight;
       return calculatedHeight > maxHeight
           ? maxHeight / screenHeight

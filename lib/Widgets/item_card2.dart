@@ -1,9 +1,5 @@
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
-
-import '../resources/AppAnimation.dart';
-import '../resources/AppInit.dart';
 import '../view/product_detail_view/productdetail_view.dart';
 
 class ItemCard2 extends StatefulWidget {

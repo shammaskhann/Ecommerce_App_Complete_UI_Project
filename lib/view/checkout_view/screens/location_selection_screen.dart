@@ -1,4 +1,5 @@
 import 'package:ecommerce_app_ui_project/Widgets/WideRoundButto.dart';
+import 'package:ecommerce_app_ui_project/Widgets/edit_Location.dart';
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:ecommerce_app_ui_project/resources/AppInit.dart';
 import 'package:ecommerce_app_ui_project/view/StandardAppBar/appbar_view.dart';
@@ -17,6 +18,7 @@ class _LocationSelectionScreenState extends State<LocationSelectionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -140,7 +142,10 @@ class _LocationSelectionScreenState extends State<LocationSelectionScreen> {
                   onTap: () {
                     showDialog(
                         context: context,
-                        builder: ((context) => const AlertDialog()));
+                        builder: (context) =>
+                            EditLocationDailog(isUpdated: (value) {
+                              setState(() {});
+                            }));
                   },
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
