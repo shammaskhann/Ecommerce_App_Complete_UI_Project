@@ -1,10 +1,12 @@
 import 'package:ecommerce_app_ui_project/resources/AppColor.dart';
 import 'package:flutter/material.dart';
+import '../resources/AppInit.dart';
 import '../view/product_detail_view/productdetail_view.dart';
 
 class ItemCard2 extends StatefulWidget {
   final Map itemMap;
-  const ItemCard2({required this.itemMap, super.key});
+  final Function(bool) isUpdated;
+  const ItemCard2({required this.itemMap, required this.isUpdated, super.key});
 
   @override
   State<ItemCard2> createState() => _ItemCard2State();
@@ -14,8 +16,8 @@ class _ItemCard2State extends State<ItemCard2> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        Navigator.push(
+      onTap: () async {
+        await Navigator.push(
             context,
             PageRouteBuilder(
                 maintainState: true,
@@ -29,6 +31,8 @@ class _ItemCard2State extends State<ItemCard2> {
                     ),
                   );
                 }));
+        widget.isUpdated(true);
+        setState(() {});
       },
       child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
@@ -60,7 +64,8 @@ class _ItemCard2State extends State<ItemCard2> {
                         right: 10,
                         child: InkWell(
                             onTap: () {
-                              setState(() {});
+                              AppInit.cartController.addToCart(widget.itemMap);
+                              // setState(() {});
                             },
                             child: CircleAvatar(
                                 backgroundColor: AppColor.secondaryColor,

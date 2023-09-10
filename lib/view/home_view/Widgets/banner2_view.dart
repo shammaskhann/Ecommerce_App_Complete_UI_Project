@@ -36,15 +36,15 @@ class Banner2 extends StatelessWidget {
                   'Get',
                   style: TextStyle(
                       color: AppColor.white,
-                      fontSize: 25,
+                      fontSize: 18,
                       fontFamily: 'Manrope',
-                      fontWeight: FontWeight.w300),
+                      fontWeight: FontWeight.w500),
                 ),
                 Text(
                   'FREE SHIPPING',
                   style: TextStyle(
                       color: AppColor.white,
-                      fontSize: 32,
+                      fontSize: 26,
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w800),
                 ),
@@ -52,7 +52,7 @@ class Banner2 extends StatelessWidget {
                   'On First 03 Order',
                   style: TextStyle(
                       color: AppColor.white,
-                      fontSize: 17,
+                      fontSize: 16,
                       fontFamily: 'Manrope',
                       fontWeight: FontWeight.w500),
                 ),

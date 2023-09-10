@@ -21,34 +21,22 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             height: 20,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              IconButton(
-                onPressed: () => {Navigator.pop(context, true)},
-                icon: Container(
-                  height: 40,
-                  width: 40,
-                  decoration: BoxDecoration(
-                    color: AppColor.black10,
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: const Icon(
-                    Icons.arrow_back_ios,
-                    size: 12,
-                  ),
+              Center(
+                child: Text(
+                  'Your Favourite Items(${AppInit.favController.favItems.length})',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontFamily: 'Manrope',
+                      fontWeight: FontWeight.w700,
+                      color: AppColor.black100),
                 ),
               ),
-              const SizedBox(
-                width: 8,
-              ),
-              Text(
-                'Your Favourite Items(${AppInit.favController.favItems.length})',
-                style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: 'Manrope',
-                    fontWeight: FontWeight.w700,
-                    color: AppColor.black100),
-              )
             ],
+          ),
+          const SizedBox(
+            height: 20,
           ),
           Expanded(
             child: ListView.builder(

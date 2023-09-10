@@ -20,8 +20,18 @@ class _MoreOptionScreenState extends State<MoreOptionScreen> {
           const SizedBox(
             height: 20,
           ),
-          const StandardAppBar(
-            title: 'More Options',
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                "More Options",
+                style: TextStyle(
+                    color: AppColor.black100,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Manrope'),
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),

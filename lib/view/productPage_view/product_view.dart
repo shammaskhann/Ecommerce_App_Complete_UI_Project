@@ -198,8 +198,10 @@ class _ProductScreenState extends State<ProductScreen> {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
                 itemBuilder: (context, index) => ItemCard2(
-                      itemMap: filteredList[index],
-                    )),
+                    itemMap: filteredList[index],
+                    isUpdated: (value) {
+                      setState(() {});
+                    })),
           )
         ],
       ),
